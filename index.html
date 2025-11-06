@@ -164,6 +164,7 @@
             padding: 18px 15px;
             border-bottom: 1px solid rgba(139, 241, 249, 0.1);
             color: #ffffff;
+            text-align: center;
         }
 
         tbody tr {
@@ -450,6 +451,108 @@
                 height: 150px;
             }
         }
+        .insights-section {
+            margin-top: 32px;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid #8bf1f9;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .insights-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #C1C7CC;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .insights-list {
+            list-style: none;
+            counter-reset: insight-counter;
+            padding-left: 0;
+            line-height: 1.8;
+        }
+
+        .insights-list > li {
+            counter-increment: insight-counter;
+            position: relative;
+            padding-left: 45px;
+            margin-bottom: 20px;
+            color: #C1C7CC;
+            font-size: 1rem;
+        }
+
+        .insights-list > li::before {
+            content: counter(insight-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #8bf1f9;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .sub-list {
+            list-style: disc;
+            margin-top: 12px;
+            margin-left: 20px;
+            color: #C1C7CC;
+            font-size: 0.95rem;
+        }
+
+        .sub-list li {
+            margin-bottom: 8px;
+        }
+
+        .insights-list strong {
+            color: #C1C7CC;
+            font-weight: 600;
+        }
+
+        .highlight-positive {
+            color: #27ae60;
+            background: #27ae60;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .highlight-negative {
+            color: #e74c3c;
+            background: #e74c3c;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .insights-section {
+                padding: 20px 16px;
+                margin-top: 24px;
+            }
+            
+            .insights-title {
+                font-size: 1.3rem;
+            }
+            
+            .insights-list > li {
+                padding-left: 40px;
+                font-size: 0.95rem;
+            }
+            
+            .insights-list > li::before {
+                width: 26px;
+                height: 26px;
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -461,42 +564,67 @@
 
         <div class="content">
             <!-- KPI Overview -->
-            <div class="kpi-grid">
-                <div class="kpi-card">
-                    <h3>Total Cost</h3>
-                    <div class="value">₹29,635</div>
+            <div class="section">
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <h3>Total Cost</h3>
+                        <div class="value">₹29,635</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>Impressions</h3>
+                        <div class="value">222,182</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>Installs</h3>
+                        <div class="value">1,292</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>CTR</h3>
+                        <div class="value">2.8%</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>Registrations</h3>
+                        <div class="value">1035</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>CPR</h3>
+                        <div class="value">₹28</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>Purchases</h3>
+                        <div class="value">81</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>CPI</h3>
+                        <div class="value">₹23</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>CAC</h3>
+                        <div class="value">₹365</div>
+                    </div>
                 </div>
-                <div class="kpi-card">
-                    <h3>Impressions</h3>
-                    <div class="value">222,182</div>
-                </div>
-                <div class="kpi-card">
-                    <h3>Installs</h3>
-                    <div class="value">1,292</div>
-                </div>
-                <div class="kpi-card">
-                    <h3>CTR</h3>
-                    <div class="value">2.8%</div>
-                </div>
-                <div class="kpi-card">
-                    <h3>Registrations</h3>
-                    <div class="value">1035</div>
-                </div>
-                <div class="kpi-card">
-                    <h3>CPR</h3>
-                    <div class="value">₹28</div>
-                </div>
-                <div class="kpi-card">
-                    <h3>Purchases</h3>
-                    <div class="value">81</div>
-                </div>
-                <div class="kpi-card">
-                    <h3>CPI</h3>
-                    <div class="value">₹23</div>
-                </div>
-                <div class="kpi-card">
-                    <h3>CAC</h3>
-                    <div class="value">₹365</div>
+                <div class="insights-section">
+                    <h3 class="insights-title">Key Insights</h3>
+                    <ol class="insights-list">
+                        <li>
+                            We spent <strong>₹29,000</strong> in October '25, out of which <strong>₹15,000</strong> was spent between 1st–14th October, during which the conversion tracking setup was broken.
+                            <ul class="sub-list">
+                                <li>As a result, we saw barely any conversions in this period, which increased the overall CAC for the month.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Since Meta wasn't reporting conversions until 27th October, the campaigns were not being optimized for purchases.
+                            <ul class="sub-list">
+                                <li>Although purchases were happening (as seen on Google Analytics), they were not reported on Meta, which prevented the algorithm from optimizing effectively.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            After Meta started reporting purchases, the CAC dropped significantly to <strong class="highlight-positive">₹106</strong>, compared to <strong class="highlight-negative">₹431</strong> when conversions were not being reported.
+                        </li>
+                        <li>
+                            With a CTR of over <strong>2%</strong>, the creatives are performing exceptionally well and are above industry benchmarks.
+                        </li>
+                    </ol>
                 </div>
             </div>
 
@@ -569,10 +697,21 @@
                             <td><strong>39%</strong></td>
                             <td><strong>₹15</strong></td>
                             <td><strong>81</strong></td>
-                            <td><strong>₹1197</strong></td>
+                            <td><strong>₹231</strong></td>
                         </tr>
                     </tbody>
                 </table>
+               <div class="insights-section">
+                    <h3 class="insights-title">Key Insights</h3>
+                    <ol class="insights-list">
+                        <li>
+                            Meta performed better than Google, with over <strong>84%</strong> better CAC. Further, Insta performed better than Facebook with over <strong>25%</strong> better CAC
+                        </li>
+                        <li>
+                            Note: In channel wise performance, We haven't included the spends during the time when conversions weren't getting reported.
+                        </li>
+                    </ol>
+                </div>
             </div>
 
             <!-- Campaign Level Analysis -->
@@ -738,6 +877,14 @@
                    
 
                 </div>
+                <div class="insights-section">
+                    <h3 class="insights-title">Key Insights</h3>
+                    <ol class="insights-list">
+                        <li>
+                            Campaign only spent on Regular video on Meta, which also got us the desired results.
+                        </li>
+                    </ol>
+                </div>
             </div>
 
             <!-- Google Analytics Events -->
@@ -839,6 +986,38 @@
                             <span class="metric-value">11 events / 8 users</span>
                         </div>
                     </div>
+                </div>
+                <div class="insights-section">
+                    <h3 class="insights-title">Key Insights</h3>
+                    <ol class="insights-list">
+                        <li>
+                            In terms of the overall funnel -
+                            <ul class="sub-list">
+                                <li>While we received 195 purchases overall, there were 139 payments failed. The CAC would have been much cheaper if they'd have converted.</li>
+                                <li>The number of app uninstalls is significant. The is indicative of the app user experience. We'll need to understand the issues in the app and fix them which will further bring our costs down.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="insights-section">
+                    <h3 class="insights-title">Next Steps</h3>
+                    <ol class="insights-list">
+                        <li>
+                            We will start to scale on Meta gradually, considering the performance.
+                        </li>
+                        <li>
+                            We will test out new creatives so we have more of hero creatives. Right now, since the campaigns are only spending on 1, we don't have any backup performing creatives.
+                        </li>
+                        <li>
+                            On the app's tech bit, we will need to understand why there are so many payments failed and uninstalls. If we need to bring the overall costs down further, we will need to improve the overall user experience on the app.
+                        </li>
+                        <li>
+                            On google, while we're scaling down, we will also test out new copies to further improve the performance.
+                        </li>
+                    </ol>
                 </div>
             </div>
 
